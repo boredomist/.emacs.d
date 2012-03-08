@@ -1,3 +1,5 @@
+(require 'vala-mode)
+
 (add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))
 (add-to-list 'auto-mode-alist '("\\.vapi$" . vala-mode))
 (add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
