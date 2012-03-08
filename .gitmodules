@@ -7,3 +7,6 @@
 [submodule "site-lisp/idle-highlight-mode"]
 	path = site-lisp/idle-highlight-mode
 	url = https://github.com/nonsequitur/idle-highlight-mode.git
+[submodule "site-lisp/smex"]
+	path = site-lisp/smex
+	url = https://github.com/nonsequitur/smex.git

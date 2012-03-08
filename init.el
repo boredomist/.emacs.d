@@ -36,14 +36,7 @@
   ;; Nuke tabs
   (setq indent-tabs-mode nil)
 
-  (defalias 'yes-or-no-p 'y-or-n-p)
-
-  ;; Smex M-x magic
-  (eval-after-load "smex"
-    '(progn
-       (setq smex-save-file "~/.emacs.d/.smex-items")
-       (global-set-key (kbd "M-x") 'smex)
-       (global-set-key (kbd "M-X") 'smex-major-mode-commands))))
+  (defalias 'yes-or-no-p 'y-or-n-p))
 
 ;; Start loading init files
 
