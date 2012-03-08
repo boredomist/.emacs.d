@@ -52,21 +52,11 @@
 
 ;; smex
 (require 'smex)
-(setq smex-save-file "~/.emacs.d/.smex-items")
-(global-set-key [(meta x)]
-		(lambda ()
-		  (interactive)
-		  (or (boundp 'smex-cache)
-		      (smex-initialize))
-		  (global-set-key [(meta x)] 'smex)
-		  (smex)))
+(smex-initialize)
 
-(global-set-key [(shift meta x)]
-		(lambda ()
-		  (interactive)
-		  (or (boundp 'smex-cache)
-		      (smex-initialize))
-		  (global-set-key [(shift meta x)] 'smex-major-mode-commands)
-		  (smex-major-mode-commands)))
+(setq smex-save-file "~/.emacs.d/.smex-items")
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (provide 'init-other)
