@@ -15,4 +15,14 @@
 	   ido-handle-duplicate-virtual-buffers 2
 	   ido-max-prospects 10)))
 
+
+;; smex - ido like M-x completion
+(require 'smex)
+(smex-initialize)
+
+(setq smex-save-file "~/.emacs.d/.smex-items")
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
 (provide 'init-ido)

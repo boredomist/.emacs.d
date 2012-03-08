@@ -50,13 +50,11 @@
 (add-hook 'perl-mode-hook       (lambda () (idle-highlight-mode t)))
 (add-hook 'sh-mode-hook         (lambda () (idle-highlight-mode t)))
 
-;; smex
-(require 'smex)
-(smex-initialize)
-
-(setq smex-save-file "~/.emacs.d/.smex-items")
-
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; markdown
+(autoload 'markdown-mode "markdown-mode.el" "major mode for markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.text$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.mdwn$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.mdt$" . markdown-mode))
 
 (provide 'init-other)
