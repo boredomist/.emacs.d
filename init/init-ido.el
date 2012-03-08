@@ -1,8 +1,10 @@
 (require 'ido)
+(require 'ido-ubiquitous)
 
 (eval-after-load "ido"
   '(progn
      (ido-mode t)
+     (ido-ubiquitous t)
      (ido-everywhere t)
      (setq ido-enable-prefix nil
 	   ido-enable-flex-matching t

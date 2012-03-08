@@ -39,8 +39,15 @@
 (require 'ansi-color)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-
 (setq column-number-mode t)
 
+;; Idle highlight mode
+(require 'idle-highlight-mode)
+(add-hook 'c-mode-common-hook   (lambda () (idle-highlight-mode t)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
+(add-hook 'java-mode-hook       (lambda () (idle-highlight-mode t)))
+(add-hook 'lisp-mode-hook       (lambda () (idle-highlight-mode t)))
+(add-hook 'perl-mode-hook       (lambda () (idle-highlight-mode t)))
+(add-hook 'sh-mode-hook         (lambda () (idle-highlight-mode t)))
 
 (provide 'init-other)

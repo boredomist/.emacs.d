@@ -1,3 +1,9 @@
 [submodule "site-lisp/yasnippet"]
 	path = site-lisp/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "site-lisp/ido-ubiquitous"]
+	path = site-lisp/ido-ubiquitous
+	url = https://github.com/technomancy/ido-ubiquitous.git
+[submodule "site-lisp/idle-highlight-mode"]
+	path = site-lisp/idle-highlight-mode
+	url = https://github.com/nonsequitur/idle-highlight-mode.git
