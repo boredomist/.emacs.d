@@ -1,5 +1,12 @@
-;; hideshow
+;; recentf mode
+(require 'recentf)
+(recentf-mode 1)
 
+;; whitespace mode
+(require 'whitespace)
+;; (global-whitespace-mode t)
+
+;; hideshow
 (add-hook 'c-mode-common-hook   'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 (add-hook 'java-mode-hook       'hs-minor-mode)
@@ -8,7 +15,6 @@
 (add-hook 'sh-mode-hook         'hs-minor-mode)
 
 ;; paredit
-
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook
@@ -29,5 +35,12 @@
 ;; text mode
 (add-hook 'text-mode-hook 'auto-fill-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
+
+(require 'ansi-color)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+
+(setq column-number-mode t)
+
 
 (provide 'init-other)

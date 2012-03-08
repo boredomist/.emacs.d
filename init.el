@@ -8,9 +8,20 @@
     (when (fboundp mode) (funcall mode -1)))
 
   ;; Initialize the load path
-  (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
-  (add-to-list 'load-path (expand-file-name "~/.emacs.d/init"))
-  (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp"))
+  (setq
+   dotfiles-dir (file-name-directory
+		 (or (buffer-file-name) load-file-name))
+   site-lisp-dir (expand-file-name "site-lisp" dotfiles-dir)
+   init-dir (expand-file-name "init" dotfiles-dir))
+
+  (add-to-list 'load-path dotfiles-dir)
+  (add-to-list 'load-path init-dir)
+  (add-to-list 'load-path site-lisp-dir)
+
+  ;; Add external projects to load path
+  (dolist (project (directory-files site-lisp-dir t "\\w+"))
+    (when (file-directory-p project)
+      (add-to-list 'load-path project)))
 
   ;; Some handy global modes
   (progn
@@ -19,9 +30,6 @@
     (global-linum-mode 1)
     (global-hl-line-mode)
     (global-auto-revert-mode))
-
-  (add-hook 'prog-hook 'hs-minor-mode)
-  (add-hook 'prog-hook 'whitespace-mode)
 
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -46,6 +54,7 @@
 (require 'init-ido)
 (require 'init-git)
 (require 'init-themes)
+(require 'init-yasnippet)
 
 ;; language specific settings
 (require 'init-c)
@@ -60,6 +69,9 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
+
+(require 'cl)
+(require 'uniquify)
 
 ;; require custom things
 (load "custom")
