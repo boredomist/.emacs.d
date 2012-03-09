@@ -57,4 +57,15 @@
 (add-to-list 'auto-mode-alist '("\\.mdwn$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdt$" . markdown-mode))
 
+;; gist
+(require 'gist)
+(setq gist-use-curl t)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Nuke tabs
+(setq indent-tabs-mode nil)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (provide 'init-other)
