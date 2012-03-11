@@ -1,7 +1,7 @@
 (defconst boredomist-c-style
   '((c-basic-offset             . 2)
     (c-tab-always-indent        . t)
-    (c-comment-only-line-offset . 2)
+    (c-comment-only-line-offset . 0)
     (c-hanging-braces-alist     . ((defun-open)
                                    (brace-list-open)))
     (c-hanging-colons-alist     . ())
@@ -12,7 +12,6 @@
   "boreodmist's C Programming Style")
 
 (c-add-style "boredomist" boredomist-c-style)
-
 
 (defun my-c-mode-hook ()
   (c-set-style "boredomist")
