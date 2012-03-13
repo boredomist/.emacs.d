@@ -29,6 +29,10 @@
   (global-hl-line-mode)
   (global-auto-revert-mode))
 
+;; Remove some annoying prompts
+(dolist (func '(downcase-region upcase-region narrow-to-region eval-expression set-goal-column))
+  (put func 'disabled nil))
+
 ;; Start loading init files
 
 (require 'init-defuns)
@@ -59,3 +63,4 @@
 
 ;; require custom things
 (load "custom")
+

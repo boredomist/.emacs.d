@@ -1,7 +1,10 @@
 ;; keyboard bindings
 
+(global-set-key (kbd "M-q") 'fill-region)
+
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "M-SPC") 'hippie-expand)
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 (define-key global-map (kbd "C-+") 'hs-show-block)
 (define-key global-map (kbd "C--") 'hs-hide-block)
