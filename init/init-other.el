@@ -56,6 +56,7 @@
 (add-to-list 'auto-mode-alist '("\\.text$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdwn$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdt$" . markdown-mode))
+(add-hook 'markdown-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ;; gist
 (require 'gist)
@@ -67,5 +68,9 @@
 (setq indent-tabs-mode nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Ace jump
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 (provide 'init-other)

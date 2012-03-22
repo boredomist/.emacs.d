@@ -1,3 +1,5 @@
+(require 'flymake)
+
 (defconst boredomist-c-style
   '((c-basic-offset             . 2)
     (c-tab-always-indent        . t)
@@ -9,11 +11,12 @@
                                    brace-elseif-brace))
     (c-offsets-alist            . ())
     (c-echo-syntactic-information-p . t))
-  "boreodmist's C Programming Style")
+  "boredomist's C Programming Style")
 
 (c-add-style "boredomist" boredomist-c-style)
 
 (defun my-c-mode-hook ()
+  (flymake-mode t)
   (c-set-style "boredomist")
   (setq indent-tabs-mode nil))
 

@@ -1,6 +1,5 @@
 ;; -*-no-byte-compile: t; -*-
 
-
 ;; Turn off unused GUI elements
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
@@ -27,7 +26,8 @@
   (show-paren-mode 1)
   (global-linum-mode 1)
   (global-hl-line-mode)
-  (global-auto-revert-mode))
+  (global-auto-revert-mode)
+  (setq indent-tabs-mode nil))
 
 ;; Remove some annoying prompts
 (dolist (func '(downcase-region upcase-region narrow-to-region eval-expression set-goal-column))
