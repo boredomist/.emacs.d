@@ -7,8 +7,6 @@
     (c-hanging-braces-alist     . ((defun-open)
                                    (brace-list-open)))
     (c-hanging-colons-alist     . ())
-    (c-cleanup-list             . (space-before-funcall
-                                   brace-elseif-brace))
     (c-offsets-alist            . ())
     (c-echo-syntactic-information-p . t))
   "boredomist's C Programming Style")
