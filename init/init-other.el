@@ -6,6 +6,12 @@
 (require 'whitespace)
 ;; (global-whitespace-mode t)
 
+;; haml-mode
+(require 'haml-mode)
+
+;; rust-mode
+(require 'rust-mode)
+
 ;; hideshow
 (add-hook 'c-mode-common-hook   'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
