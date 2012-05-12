@@ -27,7 +27,7 @@
   (global-linum-mode 1)
   (global-hl-line-mode)
   (global-auto-revert-mode)
-  (setq indent-tabs-mode nil))
+  (setq-default indent-tabs-mode nil))
 
 ;; Remove some annoying prompts
 (dolist (func '(downcase-region upcase-region narrow-to-region eval-expression set-goal-column))
@@ -63,4 +63,3 @@
 
 ;; require custom things
 (load "custom")
-
