@@ -2,7 +2,10 @@
 
 ;; some custom settings
 
-(color-theme-tomorrow-night-eighties)
+(if (= emacs-major-version 24)
+    (load-theme 'wombat)
+    (color-theme-tomorrow-night-eighties))
+
 (setq default-directory "~/code")
 
 (custom-set-variables
