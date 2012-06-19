@@ -25,12 +25,12 @@
   (winner-mode 1)
   (show-paren-mode 1)
   (global-linum-mode 1)
-  (global-hl-line-mode)
   (global-auto-revert-mode)
   (setq-default indent-tabs-mode nil))
 
 ;; Remove some annoying prompts
-(dolist (func '(downcase-region upcase-region narrow-to-region eval-expression set-goal-column))
+(dolist (func '(downcase-region upcase-region narrow-to-region
+                                eval-expression set-goal-column))
   (put func 'disabled nil))
 
 ;; Start loading init files
@@ -48,6 +48,7 @@
 (require 'init-c)
 (require 'init-lua)
 (require 'init-vala)
+(require 'init-ocaml)
 (require 'init-flymake)
 
 ;; Other init things
@@ -60,6 +61,10 @@
 
 (require 'cl)
 (require 'uniquify)
+
+;; for things set by emacs
+(setq custom-file "~/.emacs.d/customizations.el")
+(load "customizations")
 
 ;; require custom things
 (load "custom")
