@@ -64,7 +64,8 @@
 
 ;; for things set by emacs
 (setq custom-file "~/.emacs.d/customizations.el")
-(load "customizations")
+(when (file-exists-p custom-file)
+    (load "customizations"))
 
 ;; require custom things
 (load "custom")
