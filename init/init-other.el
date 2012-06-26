@@ -77,9 +77,11 @@
 
 ;; Ace jump
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c C-SPC") 'ace-jump-mode)
 
 ;; org-mode
 (setq org-startup-indented t)
+(require 'epa-file)
+(epa-file-enable)
 
 (provide 'init-other)
