@@ -45,11 +45,16 @@
       (add-to-list 'load-path project))))
 
 (defun show-popup (title msg &optional icon)
-  "Show a popup if on X"
+  "Show a popup using notify-send"
   (interactive)
-  (shell-command
-   (concat "notify-send "
-           (if icon (concat "-i " icon) "")
-           " '" title "' '" msg "'")))
+  (if icon
+      (start-process "show-popup" nil
+                     "notify-send"
+                     title msg
+                     "-i" icon)
+
+      (start-process "show-popup" nil
+                     "notify-send"
+                     title msg)))
 
 (provide 'init-defuns)
