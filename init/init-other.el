@@ -84,4 +84,35 @@
 (require 'epa-file)
 (epa-file-enable)
 
+;; Smalltalk-mode
+;; This is a hack, smalltalk-mode uses a variable deprecated in Emacs 24.1
+(defvar inhibit-first-line-modes-regexps 'inhibit-file-local-variables-regexps)
+(require 'smalltalk-mode)
+
+;; emacs-lisp-mode
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+
+;; make firefox-nightly default browser
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "firefox-nightly")
+
+;; linenum
+(setq linum-mode-inhibit-modes-list
+      '(eshell-mode
+        shell-mode
+        erc-mode
+        wl-summary-mode))
+
+(defadvice linum-on (around linum-on-inhibit-for-modes)
+  "Stop the load of linum-mode for some major modes."
+  (unless (member major-mode linum-mode-inhibit-modes-list)
+    ad-do-it))
+
+(ad-activate 'linum-on)
+
+;; rainbow delimiters
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 (provide 'init-other)

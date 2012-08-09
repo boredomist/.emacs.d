@@ -24,4 +24,10 @@
 	url = git://github.com/boredomist/nimrod-mode.git
 [submodule "site-lisp/rainbow-delimiters"]
 	path = site-lisp/rainbow-delimiters
-	url = https://github.com/jlr/rainbow-delimiters.git
+	url = git://github.com/jlr/rainbow-delimiters.git
+[submodule "site-lisp/ZNC.el"]
+	path = site-lisp/ZNC.el
+	url = https://github.com/sshirokov/ZNC.el.git
+[submodule "site-lisp/erc-hl-nicks"]
+	path = site-lisp/erc-hl-nicks
+	url = https://github.com/leathekd/erc-hl-nicks.git

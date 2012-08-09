@@ -1,5 +1,8 @@
 ;; keyboard bindings
 
+(global-set-key (kbd "<F5>") 'compile)
+(global-set-key (kbd "<f5>") 'recompile)
+
 (global-set-key (kbd "M-q") 'fill-region)
 
 (global-set-key (kbd "C-x \\") 'align-regexp)

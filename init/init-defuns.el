@@ -44,4 +44,12 @@
     (when (file-directory-p project)
       (add-to-list 'load-path project))))
 
+(defun show-popup (title msg &optional icon)
+  "Show a popup if on X"
+  (interactive)
+  (shell-command
+   (concat "notify-send "
+           (if icon (concat "-i " icon) "")
+           " '" title "' '" msg "'")))
+
 (provide 'init-defuns)

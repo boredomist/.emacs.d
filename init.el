@@ -42,7 +42,7 @@
 (require 'init-ido)
 (require 'init-git)
 (require 'init-themes)
-(require 'init-yasnippet)
+(require 'init-erc)
 
 ;; language specific settings
 (require 'init-c)
