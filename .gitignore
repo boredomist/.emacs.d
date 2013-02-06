@@ -6,3 +6,5 @@ url/
 elpa/
 tramp
 customizations.el
+games/
+abbrev_defs
