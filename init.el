@@ -48,6 +48,7 @@
 (require 'init-git)
 (require 'init-themes)
 (require 'init-erc)
+(require 'init-mail)
 
 ;; language specific settings
 (require 'init-c)

@@ -31,3 +31,12 @@
 [submodule "site-lisp/erc-hl-nicks"]
 	path = site-lisp/erc-hl-nicks
 	url = https://github.com/leathekd/erc-hl-nicks.git
+[submodule "site-lisp/expand-region"]
+	path = site-lisp/expand-region
+	url = https://github.com/magnars/expand-region.el.git
+[submodule "site-lisp/change-inner"]
+	path = site-lisp/change-inner
+	url = https://github.com/magnars/change-inner.el.git
+[submodule "site-lisp/multiple-cursors"]
+	path = site-lisp/multiple-cursors
+	url = https://github.com/magnars/multiple-cursors.el.git
