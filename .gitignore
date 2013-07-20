@@ -8,3 +8,7 @@ tramp
 customizations.el
 games/
 abbrev_defs
+.mc-lists.el
+ac-comphist.dat
+ede-projects.el
+eshell/

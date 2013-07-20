@@ -1,17 +1,12 @@
 ;; initialize color themes and such
 
-;; only use color theme on emacs < 24
-(if (< emacs-major-version 24)
-    (progn
-      (require 'color-theme)
+(add-to-list 'load-path "~/.emacs.d/elpa/color-theme-6.5.5/")
 
-      (eval-after-load "color-theme"
-        '(progn
-           (color-theme-initialize)))
+(require 'color-theme)
 
-      (require 'load-directory)
-      (load-directory "~/.emacs.d/themes")
-
-      (setq color-theme-is-global t)))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(dolist (theme (directory-files (expand-file-name "~/.emacs.d/themes/") t "\\w+"))
+ (when (file-directory-p theme)
+   (add-to-list 'custom-theme-load-path theme)))
 
 (provide 'init-themes)

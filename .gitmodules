@@ -40,3 +40,12 @@
 [submodule "site-lisp/multiple-cursors"]
 	path = site-lisp/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el.git
+[submodule "site-lisp/emacs-git-gutter"]
+	path = site-lisp/emacs-git-gutter
+	url = https://github.com/syohex/emacs-git-gutter.git
+[submodule "site-lisp/autocomplete"]
+	path = site-lisp/autocomplete
+	url = https://github.com/auto-complete/auto-complete.git
+[submodule "site-lisp/popup"]
+	path = site-lisp/popup
+	url = https://github.com/auto-complete/popup-el.git

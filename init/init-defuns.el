@@ -57,4 +57,14 @@
                      "notify-send"
                      title msg)))
 
+(defun toggle-fullscreen ()
+  "toggles whether the currently selected frame consumes the entire display or
+is decorated with a window border"
+  (interactive)
+  (let ((f (selected-frame)))
+    (modify-frame-parameters
+     f `((fullscreen . ,(if (eq nil (frame-parameter f 'fullscreen))
+                            'fullboth nil))))))
+
+
 (provide 'init-defuns)

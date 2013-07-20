@@ -20,11 +20,6 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(dolist (theme (directory-files (expand-file-name "~/.emacs.d/themes/") t "\\w+"))
-  (when (file-directory-p theme)
-    (add-to-list 'custom-theme-load-path theme)))
-
 ;; Some handy global modes
 (progn
   (winner-mode 1)
@@ -39,7 +34,6 @@
   (put func 'disabled nil))
 
 ;; Start loading init files
-
 (require 'init-defuns)
 (require 'init-bindings)
 
