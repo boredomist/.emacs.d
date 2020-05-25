@@ -1,0 +1,15 @@
+*~
+*.elc
+*.eld
+*#
+
+ido.last
+session.*
+diary
+bookmarks
+
+/elpa/
+/auto-save-list/
+/backups/
+/eshell/
+quelpa/
