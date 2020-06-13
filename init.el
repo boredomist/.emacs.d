@@ -12,13 +12,15 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(unless (require 'quelpa nil t)
+(unless (package-installed-p 'quelpa)
   (with-temp-buffer
     (url-insert-file-contents "https://framagit.org/steckerhalter/quelpa/raw/master/bootstrap.el")
-    (eval-buffer)))
+    (eval-buffer)
+    (quelpa-self-upgrade)))
 
+(require 'quelpa)
 ;; Updating quelpa at startup takes FOREVER.
-(setq-default quelpa-checkout-melpa-p nil)
+;; (setq-default quelpa-checkout-melpa-p nil)
 
 (quelpa
  '(quelpa-use-package
@@ -112,7 +114,9 @@
 
   :config
   (projectile-mode)
-  (global-set-key (kbd "C-c p s s") 'projectile-ag))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+
 
 (use-package markdown-mode
   :ensure t)
