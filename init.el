@@ -4,7 +4,7 @@
              (expand-file-name "~/.emacs.d/vendor"))
 
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -61,6 +61,15 @@
   (global-set-key (kbd "S-<up>") 'evil-window-up)
   (global-set-key (kbd "S-<right>") 'evil-window-right))
 
+(use-package vimish-fold
+  :ensure
+  :after evil)
+
+(use-package evil-vimish-fold
+  :ensure
+  :after vimish-fold
+  :hook ((prog-mode conf-mode text-mode) . evil-vimish-fold-mode))
+
 (use-package magit
   :ensure t
 
@@ -116,8 +125,6 @@
   (projectile-mode)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-
-
 (use-package markdown-mode
   :ensure t)
 
@@ -158,9 +165,12 @@
 
 (use-package flycheck
   :ensure flycheck-rust
+  :ensure flycheck-pycheckers
   :quelpa t
 
   :config
+  (setq-default
+   flycheck-python-pylint-executable "python3")
   (flycheck-define-checker sql-squabble
     "A SQL syntax checker using the squabble tool.
 See URL `https://github.com/erik/squabble'."
@@ -177,8 +187,7 @@ See URL `https://github.com/erik/squabble'."
             line-end))
     :modes (sql-mode))
 
-  (add-to-list 'flycheck-checkers 'sql-squabble)
-  (flycheck-add-next-checker 'python-flake8 'python-mypy t))
+  (add-to-list 'flycheck-checkers 'sql-squabble))
 
 
 (use-package flycheck-rust
@@ -196,6 +205,46 @@ See URL `https://github.com/erik/squabble'."
   :ensure t)
 
 (use-package pyvenv
+  :ensure t)
+
+(use-package company
+  :ensure t)
+
+(use-package tide
+  :ensure t
+
+  :config
+  (defun erik/enable-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1)
+    (company-mode +1))
+
+  (add-hook 'typescript-mode-hook #'erik/enable-tide-mode)
+  ; (add-hook 'before-save-hook 'tide-format-before-save)
+  )
+
+(use-package lsp-mode
+  :ensure t
+
+  :config
+  (add-hook 'typescript-mode-hook #'lsp))
+
+(use-package lsp-ui
+  :ensure t)
+
+(use-package protobuf-mode
+  :ensure t
+
+  :config
+  (add-hook 'protobuf-mode-hook
+            (lambda ()
+              (c-add-style "dd/protobuf" '((c-basic-offset . 4))))))
+
+(use-package terraform-mode
   :ensure t)
 
 ;; Custom things
@@ -239,3 +288,11 @@ See URL `https://github.com/erik/squabble'."
           1 font-lock-warning-face t))))
 
 (add-hook 'prog-mode-hook 'erik/font-lock-comments)
+
+;; On OSX, Emacs doesn't launch with the correct PATH param
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+
+
+(provide 'init)
+
+;;; init.el ends here
